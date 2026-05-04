@@ -131,6 +131,7 @@ plt.title("Poisson Simulation Methods Comparison (λ = 4)")
 plt.xlabel("Values")
 plt.ylabel("Frequency")
 plt.legend()
+plt.savefig("results/figures/poisson_comparison.png")
 plt.show()
 
 
