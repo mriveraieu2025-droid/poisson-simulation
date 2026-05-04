@@ -13,6 +13,19 @@ This project simulates random samples from a Poisson distribution using four dif
 - Inversion method
 - Fast approximation method
 
+## Data
+
+This project uses simulated data generated from a Poisson distribution. No external datasets are required.
+
+## Validation
+
+The simulation results were validated by comparing:
+- Sample means to the theoretical value λ
+- Sample variances to the theoretical value λ
+- Histogram overlap across methods
+
+All methods produced results consistent with the theoretical Poisson distribution.
+
 ## Files
 
 - `src/poisson_simulation.py` — main simulation script
