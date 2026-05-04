@@ -1,24 +1,21 @@
+np.random.seed(42)
 import numpy as np
 import matplotlib.pyplot as plt
 import time
 
-# =========================
+
+
 # PARAMETERS
-# =========================
 lam = 4
 n = 1000
 
 
-# =========================
-# METHOD 1: NumPy (baseline)
-# =========================
+# METHOD 1: NumPy
 def poisson_numpy(lam, n):
     return np.random.poisson(lam, n)
 
 
-# =========================
 # METHOD 2: Exponential method
-# =========================
 def poisson_exponential(lam, n):
     samples = []
 
@@ -39,9 +36,7 @@ def poisson_exponential(lam, n):
     return np.array(samples)
 
 
-# =========================
 # METHOD 3: Inversion method
-# =========================
 def poisson_inversion(lam, n):
     samples = []
 
@@ -62,9 +57,7 @@ def poisson_inversion(lam, n):
     return np.array(samples)
 
 
-# =========================
 # METHOD 4: Fast approximation
-# =========================
 def poisson_fast(lam, n):
     samples = []
 
@@ -92,18 +85,15 @@ def poisson_fast(lam, n):
     return np.array(samples)
 
 
-# =========================
+
 # GENERATE DATA
-# =========================
 data_numpy = poisson_numpy(lam, n)
 data_exp = poisson_exponential(lam, n)
 data_inv = poisson_inversion(lam, n)
 data_fast = poisson_fast(lam, n)
 
 
-# =========================
 # PRINT RESULTS
-# =========================
 print("=== MEANS ===")
 print("NumPy:", np.mean(data_numpy))
 print("Exponential:", np.mean(data_exp))
@@ -117,9 +107,7 @@ print("Inversion:", np.var(data_inv))
 print("Fast:", np.var(data_fast))
 
 
-# =========================
-# PLOT (clean version)
-# =========================
+# PLOT 
 bins = np.arange(0, 15)
 
 plt.hist(data_numpy, bins=bins, histtype='step', linewidth=2, label="NumPy")
@@ -135,9 +123,7 @@ plt.savefig("results/figures/poisson_comparison.png")
 plt.show()
 
 
-# =========================
 # PERFORMANCE TEST
-# =========================
 print("\n=== PERFORMANCE ===")
 
 lam_values = [2, 5, 10, 20]
